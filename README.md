@@ -1,70 +1,73 @@
-# Getting Started with Create React App
+### 구조설정  먼저 라우팅 설정을 잡아본다.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+```
+<App>
 
-## Available Scripts
+/ 👉 <Home>
 
-In the project directory, you can run:
+/products 👉 <AllProducts>
 
-### `yarn start`
+/products/new 👉 <NewProduct>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+/products/:id 👉 <ProductDetail>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+/carts 👉 <MyCart>
+```
 
-### `yarn test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### react-route-dom, react-icons 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+yarn add react-router-dom react-icons
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
 
-### `yarn eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 라우팅을만들어주고 
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### NAVBAR COMPONENTS를 만들어 준다.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### OUTLET이라는 개념 :  중첩된 라우팅 구조를 구성할 수 있도록 해주는 컴포넌트입니다. Outlet 컴포넌트는 라우팅 컴포넌트 내부에서 사용되며, 중첩된 자식 라우트가 렌더링되는 위치를 지정합니다
+https://hyebeen2658.tistory.com/19
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### tailwind 설치 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+yarn add -D tailwindcss
 
-### Code Splitting
+npx tailwindcss init
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+tailwind.config.js
 
-### Analyzing the Bundle Size
+content 업데이트 
+content: [
+    './src/**/*.{js,jsx}',
+  ],
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+index.css에 추가 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+이후 다시 yarn start
 
-### Advanced Configuration
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
+###  @apply란 ? 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Tailwind CSS에서 @apply 지시어는 Tailwind의 유틸리티 클래스를 컴포넌트나 요소의 CSS에 적용할 수 있게 해줍니다. 이는 여러 유틸리티 클래스를 한 곳에 모아 커스텀 CSS 클래스를 만들 때 유용하며, 이를 통해 HTML 마크업을 깔끔하게 유지하고 재사용 가능한 스타일을 만들 수 있습니다.
 
-### `yarn build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### tailwind.config.js  theme extent 에서 설정가능  brand색상
+
+
+
+### firebase 설치  yarn add firebase
+
+### 각종 키는 .env파일을 만들어서 저장해준다.
