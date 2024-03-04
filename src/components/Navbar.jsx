@@ -13,6 +13,7 @@ export default function Navbar() {
   //로그인 상태를 확인해야함
 
   const { user, login, logout } = useAuthContext();
+  console.log(user)
 
   return (
     <header className="flex justify-between border-b border-gray-300 p-2">
