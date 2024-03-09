@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { FiShoppingBag } from "react-icons/fi";
 import { BsFillPencilFill } from "react-icons/bs";
-import { login, logout, onUserStateChange } from "../api/firebase";
+
 import Button from "./ui/Button";
 import { useAuthContext } from "./context/AuthContext";
 
