@@ -7,6 +7,9 @@ module.exports = {
     extend: {
       colors: {
         brand: '#ff6347',
+      },
+      backgroundImage: {
+        banner: "url('../public/images/banner.jpg')",
       }
     },
   },

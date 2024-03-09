@@ -4,16 +4,17 @@ import { FiShoppingBag } from "react-icons/fi";
 import { BsFillPencilFill } from "react-icons/bs";
 
 import Button from "./ui/Button";
-import { useAuthContext } from "./context/AuthContext";
+import { useAuthContext } from "../context/AuthContext";
 
 import User from "./User";
+import CartStatus from "./CartStatus";
 
 export default function Navbar() {
   //상태를 만들어줘야함
   //로그인 상태를 확인해야함
 
   const { user, login, logout } = useAuthContext();
-  console.log(user)
+  // console.log(user)
 
   return (
     <header className="flex justify-between border-b border-gray-300 p-2">
@@ -24,7 +25,8 @@ export default function Navbar() {
       <nav className="flex items-center gap-4 font-semibold">
         <Link to="/products">Products</Link>
 
-        {user && <Link to="/carts">Carts</Link>}
+        {user && <Link to="/carts">
+          <CartStatus /></Link>}
 
         {user && user.isAdmin && (
           <Link to="/products/new" className="text-2xl">
