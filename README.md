@@ -82,3 +82,21 @@ https://blog.uniqbuild.co.kr/?p=559 for Strings must use singlequote
 "quotes": [2, "double", { "avoidEscape": false }], 추가함 
  
 ```
+
+
+
+### 추가적으로 해야할것 
+``` 
+HOC 개념 이해하기 
+infiniti Scroll
+noti 
+TYPESCRIPT
+```
+
+
+### 도움되는 사이트 
+```
+https://github.com/brillout/awesome-react-components
+```
+
+###
