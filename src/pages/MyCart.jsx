@@ -20,9 +20,7 @@ export default function MyCart() {
     //     queryFn: () => getCart(uid)
     // });
 
-    const { cartQuery: { isLoading, data: products }
-
-    } = useCart();
+    const { cartQuery: { isLoading, data: products } } = useCart();
 
     const hasProducts = products && products.length > 0;
     const totalPrice = products.reduce((prev, current) => prev + parseInt(current.price) * current.quantity, 0);

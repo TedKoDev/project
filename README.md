@@ -68,3 +68,17 @@ Tailwind CSS에서 @apply 지시어는 Tailwind의 유틸리티 클래스를 컴
 
 
 ### yarn add @tanstack/react-query   
+
+
+
+### eslint  and prettier 
+
+```
+https://wookgu.tistory.com/31 airbnb
+
+https://blog.uniqbuild.co.kr/?p=559 for Strings must use singlequote
+
+.eslintrc.js에 
+"quotes": [2, "double", { "avoidEscape": false }], 추가함 
+ 
+```
