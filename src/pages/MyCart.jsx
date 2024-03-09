@@ -7,6 +7,7 @@ import PriceCard from '../components/PriceCard';
 import { BsFillPlusCircleFill } from 'react-icons/bs';
 import { FaEquals } from 'react-icons/fa';
 import Button from '../components/ui/Button';
+import useCart from '../hooks/useCart';
 
 
 
@@ -14,10 +15,14 @@ const SHIPPING = 3000;
 export default function MyCart() {
 
     const { uid } = useAuthContext();
-    const { isLoading, data: products } = useQuery({
-        queryKey: ['cart'],
-        queryFn: () => getCart(uid)
-    });
+    // const { isLoading, data: products } = useQuery({
+    //     queryKey: ['cart'],
+    //     queryFn: () => getCart(uid)
+    // });
+
+    const { cartQuery: { isLoading, data: products }
+
+    } = useCart();
 
     const hasProducts = products && products.length > 0;
     const totalPrice = products.reduce((prev, current) => prev + parseInt(current.price) * current.quantity, 0);
