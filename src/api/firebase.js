@@ -73,3 +73,18 @@ export async function addNewProduct(product, image) {
     options: product.option.split(","),
   });
 }
+
+
+export async function getProducts() {
+  return get(ref(database, "products"))
+    .then((snapshot) => {
+      if (snapshot.exists()) {
+        return Object.values(snapshot.val());
+      } else {
+        return [];
+      }
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+}

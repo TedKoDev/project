@@ -64,3 +64,7 @@ Tailwind CSS에서 @apply 지시어는 Tailwind의 유틸리티 클래스를 컴
 ### 각종 키는 .env파일을 만들어서 저장해준다.
 
 ### yarn add uuid (유니크한 아이디를 만들어준다.)
+
+
+
+### yarn add @tanstack/react-query   
