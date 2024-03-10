@@ -17,8 +17,26 @@ jobs:
         npm install
         npm run build
 
-    - name: Copy .env.local to build directory
-      run: cp .env.local build/.env.local # .env.local 파일을 빌드된 파일의 위치로 복사합니다.
+    - name: Create .env file on EC2
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.EC2_HOST }}
+        username: ${{ secrets.EC2_USERNAME }}
+        key: ${{ secrets.EC2_SSH_KEY }}
+        port: ${{ secrets.EC2_PORT }}
+        script: |
+          cat > /var/www/html/.env << EOF
+          REACT_APP_FIREBASE_API_KEY=${{ secrets.REACT_APP_FIREBASE_API_KEY }}
+          REACT_APP_FIREBASE_AUTH_DOMAIN=${{ secrets.REACT_APP_FIREBASE_AUTH_DOMAIN }}
+          REACT_APP_FIREBASE_DB_URL=${{ secrets.REACT_APP_FIREBASE_DB_URL }}
+          REACT_APP_FIREBASE_PROJECT_ID=${{ secrets.REACT_APP_FIREBASE_PROJECT_ID }}
+          REACT_APP_FIREBASE_STORAGE_BUCKET=${{ secrets.REACT_APP_FIREBASE_STORAGE_BUCKET }}
+          REACT_APP_FIREBASE_MESSAGING_SENDER_ID=${{ secrets.REACT_APP_FIREBASE_MESSAGING_SENDER_ID }}
+          REACT_APP_FIREBASE_APP_ID=${{ secrets.REACT_APP_FIREBASE_APP_ID }}
+          REACT_APP_FIREBASE_MEASUREMENT_ID=${{ secrets.REACT_APP_FIREBASE_MEASUREMENT_ID }}
+          REACT_APP_CLOUDINARY_URL=${{ secrets.REACT_APP_CLOUDINARY_URL }}
+          REACT_APP_CLOUDINARY_PRESET=${{ secrets.REACT_APP_CLOUDINARY_PRESET }}
+          EOF
 
     - name: Copy to EC2
       uses: appleboy/scp-action@master
@@ -27,7 +45,7 @@ jobs:
         username: ${{ secrets.EC2_USERNAME }} # EC2 사용자 이름
         key: ${{ secrets.EC2_SSH_KEY }} # EC2 SSH 키
         port: ${{ secrets.EC2_PORT }} # SSH 포트, 기본값은 22
-        source: "build/" # 빌드된 파일의 위치, .env.local 파일을 포함하여
+        source: "build/" # 빌드된 파일의 위치
         target: "/var/www/html" # EC2에서 애플리케이션을 호스팅할 위치
 
     - name: Restart Nginx
