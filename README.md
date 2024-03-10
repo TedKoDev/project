@@ -99,4 +99,17 @@ TYPESCRIPT
 https://github.com/brillout/awesome-react-components
 ```
 
-###
+### first deploy using github action
+
+
+### .env 파일이 없어서 ec2에 직접 만들어 넣을지 아니면 workflow에 올릴지 고민함 
+직접 ec2에 저장하는것으로함 
+
+계속안되는중임 
+
+11번째 
+
+
+### netlify d에선 됨
+
+### 13번째 배포 빌드전에 .env설정해주기
