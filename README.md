@@ -108,3 +108,8 @@ https://github.com/brillout/awesome-react-components
 계속안되는중임 
 
 11번째 
+
+
+### netlify d에선 됨
+
+### 13번째 배포 빌드전에 .env설정해주기
