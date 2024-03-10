@@ -14,10 +14,7 @@ const firebaseConfig = {
   // authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
   // databaseURL: process.env.REACT_APP_FIREBASE_DB_URL,
   // projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
-  apiKey: 'AIzaSyCeLt5FlkW-UJNhdjFmZVPT6ljyCYMTZh0',
-  authDomain: "hsquare-40253.firebaseapp.com",
-  databaseURL: "https://hsquare-40253-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "hsquare-40253",
+
 };
 
 const app = initializeApp(firebaseConfig);
